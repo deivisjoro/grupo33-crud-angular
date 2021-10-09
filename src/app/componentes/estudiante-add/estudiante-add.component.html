@@ -1,0 +1,48 @@
+<h2>
+    Agregar Estudiante
+</h2>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form action="#">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <h3 class="text-center text-white">Datos del Estudiante</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" #nombre placeholder="Ingresar nombre del estudiante" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="nota1">Nota 1</label>
+                        <input type="text" id="nota1" #nota1 placeholder="Ingresar la nota 1" class="form-control" (keyup)="verificar(nota1.value)">
+                    </div>
+                    <div class="form-group">
+                        <label for="nota2">Nota 2</label>
+                        <input type="text" id="nota2" #nota2 placeholder="Ingresar la nota 2" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="nota3">Nota 3</label>
+                        <input type="text" id="nota3" #nota3 placeholder="Ingresar la nota 3" class="form-control">
+                    </div>
+
+                    <div *ngIf="error" class="alert alert-danger">
+                        Error al ingresar los datos. por favor revisar
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <div class="row p-2">
+                        <div class="col-md-6">
+                            <input type="button" (click)="agregar(nombre.value, nota1.value, nota2.value, nota3.value)" class="btn btn-primary btn-block" value="Ingresar">
+                        </div>
+                        <div class="col-md-6">
+                            <a [routerLink]="['/estudiantes']" class="btn btn-danger btn-block">Cancelar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>
